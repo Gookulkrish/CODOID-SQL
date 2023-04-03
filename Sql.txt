@@ -1,0 +1,103 @@
+2.Joins
+	  The process of Retriviy data from multiple table simulatously is knows joins.
+		CARTESION JOINS/CROSS JOIN :
+		In cartesion join record from table 1 will merge with all the records of table 2 and so on.
+		Number of column in the result table will be equal to the columns present in both the table.
+		Number of records in the result table will be equal to the products of records of both table.
+			Example:
+			SELECT  Student.NAME, Student.AGE, StudentCourse.COURSE_ID
+			FROM Student CROSS JOIN StudentCourse;
+		INNER JOIN:
+		Its is used to obtain the matching record or the records which are having a pair.
+		in Inner join the condition should be column from tble 1 should be matched with column from table 2.
+			Example:
+			   Select *
+			   From emp inner join dept 
+			   On emp.deptno in dept.deptno;
+		NATURAL JOIN :
+		 It has 2 behaviour.
+		1. It acts as inner join when we have a relation between the 2 tables.
+		2. When there is no relation between the table It acts as cartision join.
+			Example : 
+			select *
+			From emp natural join dept;
+		OUTER JOIN:
+		It is used to obtain unmatched records.
+			1. Left outer join
+				 It is used to obtain unmatching record from the left table along with matching record.
+				 Example:
+				    Select *
+				    From emp left join dept
+				    On emp.dept.no in dept.deptno;
+			 2. Right outer join
+				It is used to obtain unmatching record from right table along with matching record.
+				  Example:
+				    Select ename,dname
+				    From emp,right outer join dept
+				    On emp.deptno in dept.deptno;
+			 3. Full outer join
+			    It is used to obtain unmatching record from both table along with matching record.
+				Example:
+				Select *
+				From emp full join dept
+				On emp.deptno in deptno;
+			 4.Self join 
+			   Joining the same two table (or)
+			   Joining table by itself is known as self join.
+				Example:
+				Select *
+				From emp E1 join emp E2
+				On E1.MGR IN E2.empno;
+
+3.Rename
+	 Rename student to stddetails;
+
+4.Duplicate Records
+	Select distinct job
+	From emp;
+
+5.Distinct
+	Its is used to remove the duplicate as repeated value from the table.
+	Distinct clause should be always used as a first argument in the select clause.
+	We can pass multiple arguments in the distinct clause , it removes if the combination of column are replaced or duplicate. 
+	Example :
+	Select distinct per
+	From Students;
+7.Max Salary
+	Select max(sal)
+	From emp
+	Where job dept in 'Tester';
+8.Operator 
+	  Arithmetic operator(+,-,*,/)
+	  Relational operators (>,>=,<,<=)
+	  Comparitional operator(=,!=(<>))
+	  Concadination operator(||)
+	  Logical operator
+		     AND 
+		     OR
+		     NOT
+	   Special operator
+		      IN
+		      NOT IN
+		      BETWEEN
+		      NOT BETWEEN
+		      IS
+		      IS NOT
+		      LIKE
+		      NOT LIKE
+	  Sub query operator
+		    ALL
+		    ANY
+		    EXISTS
+		    NOT EXISTS
+9. First 5 Records in tables
+	Select * from EMP 
+	LIMIT 5;
+10. Last 5 Records in tables
+	SELECT * FROM
+        (SELECT TOP 5 *
+	FROM Emp
+        ORDER BY ID DESC)
+	ORDER BY id ASC;
+12.Create Table
+	CREATE TABLE adminUsers SELECT * FROM users;
